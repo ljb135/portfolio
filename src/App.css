@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron {
+  height: 100vh;
+}
+
+.NameRow {
+  font-family: 'Staatliches', cursive;
+  font-size: 35vmin;
+}
+
+.NameRow > *{
+  padding: 0;
+}
+
+.NameRow :first-child{
+  text-align: right;
+}
+
+.NameRow :last-child{
+  text-align: left;
+}
