@@ -41,6 +41,11 @@
   height: 100vh;
 }
 
+.NameJumbo{
+  padding-top: 10vmin;
+  --body-bg-dark: 'white'
+}
+
 .NameRow {
   font-family: 'Staatliches', cursive;
   font-size: 35vmin;
@@ -56,4 +61,46 @@
 
 .NameRow :last-child{
   text-align: left;
+}
+
+.NameRow :hover{
+  pointer-events: all;
+}
+
+.letter-button{
+  /* transition: transform 0.3s ease-in-out; */
+  display: inline;
+  transition: .2s;
+  -webkit-user-select: none;
+}
+
+.letter-button:hover{
+  font-size: 37vmin;
+}
+
+.normal-letter:hover{
+  color: var(--primary-color);
+}
+
+.instagram:hover{
+  color: black;
+  background: linear-gradient(to top, #FFDC80, #FFDC80, #F77737, #FD1D1D, #C13584, #5B51D8, #5B51D8);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 37vmin;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  -webkit-user-select: none;
+}
+
+.about-me{
+  font-family: 'Staatliches';
+  font-size: 18pt
+}
+
+[data-bs-theme=dark]{
+  --bs-body-color: white;
 }
