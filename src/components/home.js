@@ -92,10 +92,10 @@ export default class Home extends Component{
                     <Modal.Body className='pt-0'>
                         <div className='mx-3' style={{textAlign: 'justify'}}>
                             Hey! I'm the creator of this website. This page started as a portfolio website and slowly evolved into my own digital space.
-                            Feel free to move the mouse around and click on anything and everything. This website was made to be interactive and encourage exploration {':)'}
+                            Feel free to move the mouse around and click on anything and everything. This website was made to be interactive and encourage exploration :&#41;
                         </div>
                         <div className='m-3' style={{textAlign: 'justify'}}>
-                            It will also be where I post my future endeavors. I see it as a digital peek into my life.
+                            It will also be where I post my future endeavors. Stay tuned to find out what exciting &#40;or mundane&#41; things I do next!
                         </div>
                     </Modal.Body>
                     {/* <Modal.Footer/> */}
