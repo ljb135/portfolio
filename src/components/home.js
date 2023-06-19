@@ -34,20 +34,21 @@ class NameText extends Component{
                 height: "24.3vmin",
                 marginRight: "0px",
                 marginLeft: "0px",
-                zIndex: (this.state.show) ? 0 : 1
+                zIndex: (this.state.show) ? 0 : 1,
+                transform: `translateX(${this.props.translationValue*2}px)`
             }}
             onMouseEnter={() => this.setState({show: true})}
             onMouseLeave={() => this.setState({show: false})}>
                 <Col style={{
-                    pointerEvents: (this.state.show) ? "all" : "none",
+                    pointerEvents: (this.state.show && this.props.translationValue === 0) ? "all" : "none",
                     marginTop: "-13.2vmin"
                 }}>{[...section[0]].map(letter => <LetterDisplay letter={letter} update={this.updateColor}/>)}</Col>
                 <Col style={{
-                    pointerEvents: (this.state.show) ? "all" : "none",
+                    pointerEvents: (this.state.show && this.props.translationValue === 0) ? "all" : "none",
                     marginTop: "-13.2vmin"
                 }} xs="auto" className='align-self-center letter-button normal-letter' onClick={(event) => {event.stopPropagation(); this.updateColor();}}>{section[1]}</Col>
                 <Col style={{
-                    pointerEvents: (this.state.show) ? "all" : "none",
+                    pointerEvents: (this.state.show && this.props.translationValue === 0) ? "all" : "none",
                     marginTop: "-13.2vmin"
                 }}>{[...section[2]].map(letter => <LetterDisplay letter={letter} update={this.updateColor}/>)}</Col>
             </Row>
@@ -56,17 +57,42 @@ class NameText extends Component{
 }
 
 class NameJumbo extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          translationValue: Number(0)
+        };
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const translationValue = scrollPosition; // Adjust the translation value based on your desired effect
+        this.setState({ translationValue });
+    };
+
 	render() {
+        var { translationValue } = this.state;
         let names = this.props.name.split(" ");
 
 		return (
-            <Container className='vh-100'>
+            <>
+            <div className='vh-100' style={{position: "fixed", transform: `scale(${1+translationValue/600})`}}>
                 <Row className='align-middle NameJumbo'>
-                {names.map((value) => {
-                    return <NameText text={value}/>
+                {names.map((value, index) => {
+                    return <NameText text={value} translationValue={(-1)**index*translationValue}/>
                 })}
                 </Row>
-            </Container>
+            </div>
+            <div className='vh-100'/>
+            </>
 		);
 	}
 }

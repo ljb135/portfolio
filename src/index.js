@@ -13,7 +13,7 @@ import Projects from './components/projects';
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
-document.body.style.overflow = "hidden";
+document.body.style.overflowX = "hidden";
 root.render(
   <BrowserRouter>
     <Routes>
