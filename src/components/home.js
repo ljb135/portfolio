@@ -117,11 +117,14 @@ export default class Home extends Component{
                     <Modal.Header closeButton style={{borderBottom: 0}}/>
                     <Modal.Body className='pt-0'>
                         <div className='mx-3' style={{textAlign: 'justify'}}>
-                            Hey! I'm the creator of this website. This page started as a portfolio website and slowly evolved into my own digital space.
-                            Feel free to move the mouse around and click on anything and everything. This website was made to be interactive and encourage exploration :&#41;
+                            Hey! I'm the creator of this website. I made it to be interactive so definitely move your mouse around and click on things!
                         </div>
                         <div className='m-3' style={{textAlign: 'justify'}}>
-                            It will also be where I post my future endeavors. Stay tuned to find out what exciting &#40;or mundane&#41; things I do next!
+                            Height: 5'7"<br/>
+                            Weight: 140 lbs<br/>
+                            Hobbies: 🎨💻🎮<br/>
+                            Times i've gone fishing: 2<br/>
+                            Fish I've caught: 0
                         </div>
                     </Modal.Body>
                     {/* <Modal.Footer/> */}
