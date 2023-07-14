@@ -2,15 +2,17 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera, Gltf } from "@react-three/drei";
 import React, { Component } from 'react'
 import { Carousel, CarouselItem, Container } from 'react-bootstrap';
+import mobility from '../images/mobility.jpg'
+import shearing from '../images/shearing.jpg'
 
 
 export default class Projects extends Component{
 	render() {
 		return (
-            <Container className='vh-100 my-5'>
-				<Carousel variant="dark">
-					<Carousel.Item className='vh-100 p-5'>
-						<Canvas>
+            <Container className='vh-100 pb-5'>
+				<Carousel variant="dark" indicators={false}>
+					<Carousel.Item className='p-5' style={{height: '95vh'}}>
+						<Canvas style={{cursor: 'move'}}>
 							<PerspectiveCamera rotateOnAxis={[]}>
 							<mesh>
 								<ambientLight intensity={1} />
@@ -22,11 +24,31 @@ export default class Projects extends Component{
 						</Canvas>
 						<Carousel.Caption>
 							<h4>
-								Jiebin Liang &#40;b. 2001&#41;
-								<br/>
 								<i>Facet</i>, 2019
 							</h4>
 							<p>Acrylic on Rubik's Cube</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item className='p-5' style={{height: '95vh'}}>
+						<Container className='h-100 d-flex align-items-center justify-content-center'>
+							<img style={{height: "75%"}} src={mobility}/>
+						</Container>
+						<Carousel.Caption>
+							<h4>
+								<i>Mobility</i>, 2019
+							</h4>
+							<p>Acrylic on Canvas</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item className='p-5' style={{height: '95vh'}}>
+						<Container className='h-100 d-flex align-items-center justify-content-center'>
+							<img style={{height: "75%"}} src={shearing}/>
+						</Container>
+						<Carousel.Caption>
+							<h4>
+								<i>Shearing</i>, 2019
+							</h4>
+							<p>Acrylic on Canvas, Cardboard, Paper</p>
 						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>

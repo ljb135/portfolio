@@ -117,7 +117,7 @@ export default class Home extends Component{
                     <Modal.Header closeButton style={{borderBottom: 0}}/>
                     <Modal.Body className='pt-0'>
                         <div className='mx-3' style={{textAlign: 'justify'}}>
-                            Hey! I'm the creator of this website. I made it to be interactive so definitely move your mouse around and click on things!
+                            Hey! I'm the creator of this website. I made it to be interactive so move your mouse around try clicking on things!
                         </div>
                         <div className='m-3' style={{textAlign: 'justify'}}>
                             Height: 5'7"<br/>

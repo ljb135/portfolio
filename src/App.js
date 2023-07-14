@@ -6,8 +6,12 @@ import Projects from './components/projects';
 function App() {
   return (
     <div className="App">
-      <Home/>
-      <Projects/>
+      <section className="Snap">
+        <Home/>
+      </section>
+      <section className="Snap">
+        <Projects/>
+      </section>
     </div>
   );
 }
