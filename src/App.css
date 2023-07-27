@@ -113,3 +113,15 @@ a{
 [data-bs-theme=dark]{
   --bs-body-color: white;
 }
+
+[data-bs-theme=dark] .carousel-caption{
+  color: white !important;
+}
+
+[data-bs-theme=dark] .carousel-control-next-icon{
+  filter: none !important
+}
+
+[data-bs-theme=dark] .carousel-control-prev-icon{
+  filter: none !important
+}

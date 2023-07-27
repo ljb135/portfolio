@@ -9,8 +9,8 @@ import shearing from '../images/shearing.jpg'
 export default class Projects extends Component{
 	render() {
 		return (
-            <Container className='vh-100 pb-5'>
-				<Carousel variant="dark" indicators={false}>
+            <Container className='vh-100'>
+				<Carousel variant="dark" indicators={false} interval={null}>
 					<Carousel.Item className='p-5' style={{height: '95vh'}}>
 						<Canvas style={{cursor: 'move'}}>
 							<PerspectiveCamera rotateOnAxis={[]}>
@@ -30,8 +30,8 @@ export default class Projects extends Component{
 						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item className='p-5' style={{height: '95vh'}}>
-						<Container className='h-100 d-flex align-items-center justify-content-center'>
-							<img style={{height: "75%"}} src={mobility}/>
+						<Container className='h-100 d-flex align-items-center justify-content-center' style={{}}>
+							<img style={{height: "75%", padding: 10, borderStyle: 'dashed', borderWidth: 10}} src={mobility}/>
 						</Container>
 						<Carousel.Caption>
 							<h4>
@@ -41,8 +41,8 @@ export default class Projects extends Component{
 						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item className='p-5' style={{height: '95vh'}}>
-						<Container className='h-100 d-flex align-items-center justify-content-center'>
-							<img style={{height: "75%"}} src={shearing}/>
+						<Container className='h-100 d-flex align-items-center justify-content-center' style={{}}>
+							<img style={{height: "75%", padding: 10, borderStyle: 'dashed', borderWidth: 10}} src={shearing}/>
 						</Container>
 						<Carousel.Caption>
 							<h4>

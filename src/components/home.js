@@ -26,6 +26,9 @@ class NameText extends Component{
     componentDidMount(){
         this.updateColor();
     }
+    componentDidUpdate(){
+        // this.updateColor();
+    }
     render() {
         let section = this.props.text.split("*");
 
@@ -35,7 +38,9 @@ class NameText extends Component{
                 marginRight: "0px",
                 marginLeft: "0px",
                 zIndex: (this.state.show) ? 0 : 1,
-                transform: `translateX(${this.props.translationValue*2}px)`
+                transform: `translateX(${this.props.translationValue}px)`,
+                color: this.props.colorChange ? 'inherit' : 'var(--primary-color)',
+                filter: this.props.colorChange ? 'none' : 'opacity(50%) brightness(50%)',
             }}
             onMouseEnter={() => this.setState({show: true})}
             onMouseLeave={() => this.setState({show: false})}>
@@ -60,8 +65,17 @@ class NameJumbo extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          translationValue: Number(0)
+          translationValue: Number(0),
+          canScroll: true
         };
+    }
+
+    canScroll() {
+        console.log('called')
+        const scrollPosition = window.scrollY;
+        const windowWidth = window.innerWidth
+        {/* 1/6 for on screen */}
+        return scrollPosition < windowWidth/4
     }
 
     componentDidMount() {
@@ -73,21 +87,25 @@ class NameJumbo extends Component{
     }
 
     handleScroll = () => {
-        const scrollPosition = window.scrollY;
-        const translationValue = scrollPosition; // Adjust the translation value based on your desired effect
-        this.setState({ translationValue });
+        // if(this.canScroll()){
+            const translationValue = window.scrollY; // Adjust the translation value based on your desired effect
+            this.setState({translationValue: translationValue, canScroll: true});
+        // } else{
+        //     this.setState({canScroll: false});
+        // }
     };
 
 	render() {
-        var { translationValue } = this.state;
+        const { translationValue, canScroll } = this.state;
         let names = this.props.name.split(" ");
 
 		return (
             <>
-            <div className='vh-100' style={{position: "fixed", transform: `scale(${1+translationValue/600})`}}>
+            {/* 1/300 for on screen */}
+            <div className='vh-100' style={{position: "fixed", transform: `scale(${1+translationValue/1000})`}}>
                 <Row className='align-middle NameJumbo'>
                 {names.map((value, index) => {
-                    return <NameText text={value} translationValue={(-1)**index*translationValue}/>
+                    return <NameText text={value} colorChange={canScroll} translationValue={(-1)**index*translationValue}/>
                 })}
                 </Row>
             </div>
