@@ -14,6 +14,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 document.body.style.overflowX = "hidden";
+document.body.style.overflowY = "hidden";
 root.render(
   <BrowserRouter>
     <Routes>

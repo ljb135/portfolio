@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera, Gltf } from "@react-three/drei";
 import React, { Component } from 'react'
-import { Carousel, CarouselItem, Container } from 'react-bootstrap';
+import { Carousel, CarouselItem, Container, CloseButton } from 'react-bootstrap';
 import mobility from '../images/mobility.jpg'
 import shearing from '../images/shearing.jpg'
 
@@ -10,6 +10,7 @@ export default class Projects extends Component{
 	render() {
 		return (
             <Container className='vh-100'>
+				<CloseButton onClick={() => {this.props.homeRef.current.scrollIntoView()}} className='mt-5 mx-auto position-absolute' style={{zIndex: 2, left: 0, right: 0}}/>
 				<Carousel variant="dark" indicators={false} interval={null}>
 					<Carousel.Item className='p-5' style={{height: '95vh'}}>
 						<Canvas style={{cursor: 'move'}}>

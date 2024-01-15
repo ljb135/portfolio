@@ -6,10 +6,16 @@ import Nav from 'react-bootstrap/Nav'
 class LetterDisplay extends Component{
     render() {
         let letter = this.props.letter
-        if(letter === 'i'){
-            return(<a href="https://www.instagram.com/chris.liang.cl/"  className='letter-button instagram'>{letter}</a>)
+        switch(letter){
+            case 'i':
+                return(<a href="https://www.instagram.com/chris.liang.cl/"  className='letter-button instagram'>{letter}</a>)
+            case 'a':
+                return(<a onClick={(event) => {event.stopPropagation(); this.props.artRef.current.scrollIntoView()}}  className='letter-button art'>{letter}</a>)
+            case 'g':
+                return(<a href="https://global-news.onrender.com/"  className='letter-button globe'>{letter}</a>)
+            default:
+                return(<div onClick={(event) => {event.stopPropagation(); this.props.update();}} className='letter-button normal-letter'>{letter}</div>)
         }
-        return(<div onClick={(event) => {event.stopPropagation(); this.props.update();}} className='letter-button normal-letter'>{letter}</div>)
     }
 }
 
@@ -55,7 +61,7 @@ class NameText extends Component{
                 <Col style={{
                     pointerEvents: (this.state.show && this.props.translationValue === 0) ? "all" : "none",
                     marginTop: "-13.2vmin"
-                }}>{[...section[2]].map(letter => <LetterDisplay letter={letter} update={this.updateColor}/>)}</Col>
+                }}>{[...section[2]].map(letter => <LetterDisplay letter={letter} update={this.updateColor} artRef={this.props.artRef}/>)}</Col>
             </Row>
         )
     }
@@ -105,7 +111,7 @@ class NameJumbo extends Component{
             <div className='vh-100' style={{position: "fixed", transform: `scale(${1+translationValue/1000})`}}>
                 <Row className='align-middle NameJumbo'>
                 {names.map((value, index) => {
-                    return <NameText text={value} colorChange={canScroll} translationValue={(-1)**index*translationValue}/>
+                    return <NameText text={value} colorChange={canScroll} translationValue={(-1)**index*translationValue} artRef={this.props.artRef}/>
                 })}
                 </Row>
             </div>
@@ -116,8 +122,8 @@ class NameJumbo extends Component{
 }
 
 export default class Home extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {show: false, light: true};
         this.changeTheme = this.changeTheme.bind(this);
     }
@@ -130,7 +136,7 @@ export default class Home extends Component{
 	render() {
 		return (
             <div onClick={this.changeTheme}>
-                <NameJumbo name="J*i*ebin Chr*i*s L*i*ang"/>
+                <NameJumbo name="J*i*ebin Chr*i*s L*i*ang" artRef={this.props.artRef}/>
                 <Modal className="about-me" show={this.state.show} onHide={() => this.setState({show: false})} centered>
                     <Modal.Header closeButton style={{borderBottom: 0}}/>
                     <Modal.Body className='pt-0'>
@@ -141,8 +147,6 @@ export default class Home extends Component{
                             Height: 5'7"<br/>
                             Weight: 140 lbs<br/>
                             Hobbies: 🎨💻🎮<br/>
-                            Times i've gone fishing: 2<br/>
-                            Fish I've caught: 0
                         </div>
                     </Modal.Body>
                     {/* <Modal.Footer/> */}
