@@ -10,7 +10,7 @@ export default class Projects extends Component{
 	render() {
 		return (
             <Container className='vh-100'>
-				<CloseButton onClick={() => {this.props.homeRef.current.scrollIntoView()}} className='mt-5 mx-auto position-absolute' style={{zIndex: 2, left: 0, right: 0}}/>
+				<CloseButton onClick={() => {this.props.homeRef.current.scrollIntoView()}} className='mt-4 mx-auto position-absolute rounded-circle shadow p-3' style={{zIndex: 2, left: 0, right: 0}}/>
 				<Carousel variant="dark" indicators={false} interval={null}>
 					<Carousel.Item className='p-5' style={{height: '95vh'}}>
 						<Canvas style={{cursor: 'move'}}>

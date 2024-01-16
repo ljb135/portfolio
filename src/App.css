@@ -108,12 +108,14 @@ body {
   font-size: 37vmin;
 }
 
-.globe:hover{
-  color: black;
+.globe{
   background: url('./images/globe.png') no-repeat;
-  background-size: 50vmin;
-  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  background-size: 50vmin;
+}
+
+.globe:hover{
+  -webkit-text-fill-color: transparent;
   font-size: 37vmin;
 }
 
