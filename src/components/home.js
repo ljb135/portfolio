@@ -140,12 +140,14 @@ export default class Home extends Component{
                 <Modal className="about-me" show={this.state.show} onHide={() => this.setState({show: false})} centered>
                     <Modal.Header closeButton style={{borderBottom: 0}}/>
                     <Modal.Body className='pt-0'>
-                        <div className='mx-3' style={{textAlign: 'justify'}}>
-                            Hey! I'm the creator of this website. I made it to be interactive so make sure to explore it!
+                        <div className='mx-3'>
+                            Hey!
+                        </div>
+                        <div className='m-3'>
+                            I'm a {Math.floor((new Date() - new Date("2001-09-08").getTime())/ 3.15576e+10)} years old senior studying CS and CE at Rutgers.
+                            I'll be starting at AT&T as a SWE July 2024.
                         </div>
                         <div className='m-3' style={{textAlign: 'justify'}}>
-                            Height: 5'7"<br/>
-                            Weight: 140 lbs<br/>
                             Hobbies: 🎮💻🎨<br/>
                         </div>
                     </Modal.Body>
