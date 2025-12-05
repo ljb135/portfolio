@@ -16,7 +16,7 @@ export default class Projects extends Component{
 						<Canvas style={{cursor: 'move'}}>
 							<PerspectiveCamera rotateOnAxis={[]}>
 							<mesh>
-								<ambientLight intensity={1} />
+								<ambientLight intensity={3} />
 								<Gltf src="./poly.glb" receiveShadow castShadow scale={30} rotation={[0, 1.55, 0]}/>
 								<OrbitControls/>
 								<meshStandardMaterial />
