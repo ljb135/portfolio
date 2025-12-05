@@ -91,6 +91,11 @@ body {
   color: var(--primary-color);
 }
 
+.special-letter{
+  text-decoration: underline;
+  text-decoration-thickness: 2vmin;
+}
+
 .instagram:hover{
   color: black;
   background: linear-gradient(to top, #FFDC80, #FFDC80, #F77737, #FD1D1D, #C13584, #5B51D8, #5B51D8);

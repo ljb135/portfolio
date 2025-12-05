@@ -8,11 +8,11 @@ class LetterDisplay extends Component{
         let letter = this.props.letter
         switch(letter){
             case 'i':
-                return(<a href="https://www.instagram.com/chris.liang.cl/"  className='letter-button instagram'>{letter}</a>)
+                return(<a href="https://www.instagram.com/chris.liang.cl/"  className='letter-button special-letter instagram'>{letter}</a>)
             case 'a':
-                return(<a onClick={(event) => {event.stopPropagation(); this.props.artRef.current.scrollIntoView()}}  className='letter-button art'>{letter}</a>)
+                return(<a onClick={(event) => {event.stopPropagation(); this.props.artRef.current.scrollIntoView()}}  className='letter-button special-letter art'>{letter}</a>)
             case 'g':
-                return(<a href="https://global-news.onrender.com/"  className='letter-button globe'>{letter}</a>)
+                return(<a href="https://global-news.onrender.com/"  className='letter-button special-letter globe'>{letter}</a>)
             default:
                 return(<div onClick={(event) => {event.stopPropagation(); this.props.update();}} className='letter-button normal-letter'>{letter}</div>)
         }
@@ -141,11 +141,10 @@ export default class Home extends Component{
                     <Modal.Header closeButton style={{borderBottom: 0}}/>
                     <Modal.Body className='pt-0'>
                         <div className='mx-3'>
-                            Hey!
+                            Hey Stranger!
                         </div>
                         <div className='m-3'>
-                            I'm a {Math.floor((new Date() - new Date("2001-09-08").getTime())/ 3.15576e+10)} years old senior studying CS and CE at Rutgers.
-                            I'll be starting at AT&T as a SWE July 2024.
+                            I'm Chris, a {Math.floor((new Date() - new Date("2001-09-08").getTime())/ 3.15576e+10)} years old Software Engineer working at AT&T, and attending OMSCS at Georgia Tech on the side. Shoot me a message on LinkedIn if you want to chat.
                         </div>
                         <div className='m-3' style={{textAlign: 'justify'}}>
                             Hobbies: 🎮💻🎨<br/>
